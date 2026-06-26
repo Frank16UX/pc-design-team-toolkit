@@ -1,0 +1,37 @@
+{
+  "name": "pc-design-team-toolkit",
+  "version": "1.0.0",
+  "description": "A bundle of custom Agent Skills for the design team — installable into Claude Code, Claude Desktop, Codex, and Cursor.",
+  "type": "module",
+  "bin": {
+    "pc-skills": "bin/install.mjs"
+  },
+  "scripts": {
+    "install-skills": "node bin/install.mjs",
+    "list": "node bin/install.mjs --list"
+  },
+  "files": [
+    "bin/",
+    ".claude/skills/",
+    "README.md"
+  ],
+  "keywords": [
+    "claude",
+    "claude-code",
+    "claude-desktop",
+    "codex",
+    "cursor",
+    "agent-skills",
+    "skills",
+    "design-system"
+  ],
+  "author": "Frank16UX <franklinperez@ravn.co>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Frank16UX/pc-design-team-toolkit.git"
+  }
+}

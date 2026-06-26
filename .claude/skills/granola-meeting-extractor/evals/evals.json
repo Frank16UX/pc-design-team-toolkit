@@ -1,0 +1,13 @@
+{
+  "skill_name": "granola-meeting-extractor",
+  "evals": [
+    {
+      "id": 0,
+      "name": "kpi-quad-full-briefing",
+      "prompt": "Can you pull my action items, any deadlines, and a quick TLDR out of this Granola meeting? https://notes.granola.ai/t/65f9189e-8f09-4c98-823b-1ca6d162b054-008umkv4",
+      "expected_output": "A briefing with a TLDR, a 'Your action items' section listing only Frank's commitments, an 'Other action items' section with named owners, and a chronological timelines/deadlines section with relative dates resolved to real dates. No em dashes.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
