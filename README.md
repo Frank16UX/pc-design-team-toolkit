@@ -141,16 +141,50 @@ done
 
 ## Updating
 
-```bash
-# Option A (vercel-labs/skills): refresh installed skills
-npx skills update
+> [!IMPORTANT]
+> **Updates require `--force`.** The installer *copies* skills, so a plain re-run
+> prints `skip (exists)` and changes nothing. Add `--force` to overwrite your
+> installed skills with the latest versions.
 
-# Option B / manual: re-run with --force to overwrite
+```bash
+# Update -> ~/.claude/skills (Claude Code + Claude Desktop)
+npx github:Frank16UX/pc-design-team-toolkit --force
+
+# Update everywhere you installed (match your original targets)
 npx github:Frank16UX/pc-design-team-toolkit --all-agents --force
 ```
 
-If you symlinked the skills (see Manual install), a `git pull` in this repo updates
-every agent at once — no reinstall needed.
+`npx github:…` resolves the repo's latest commit on each run, so once a new
+version is pushed, the next `--force` run pulls it in. After updating, **restart
+your agent** (or quit + reopen Claude Desktop) so it reloads the skills.
+
+**npx cache gotcha:** if a run returns a stale copy, bust the cache with `--yes`:
+
+```bash
+npx --yes github:Frank16UX/pc-design-team-toolkit --force
+```
+
+**`vercel-labs/skills` equivalent** (if you installed via Option A):
+
+```bash
+npx skills update
+```
+
+### Auto-updating installs (symlink)
+
+For anyone comfortable with git, clone once and **symlink** the skills — then a
+single `git pull` updates every agent at once, no reinstall and no `--force`:
+
+```bash
+git clone https://github.com/Frank16UX/pc-design-team-toolkit.git
+cd pc-design-team-toolkit
+for d in .claude/skills/*/; do
+  ln -snf "$(pwd)/$d" ~/.claude/skills/"$(basename "$d")"
+done
+
+# later, to update everyone's skills:
+git pull
+```
 
 ---
 
